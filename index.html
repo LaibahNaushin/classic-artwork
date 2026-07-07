@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Classic Artwork Fetcher</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- ===========================
+            HEADER
+    ============================ -->
+
+    <header class="header">
+
+        <div class="container">
+
+            <div class="header-content">
+
+                <div class="logo">
+
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-landmark"></i>
+                    </div>
+
+                    <div class="logo-text">
+                        <h1>Classic Artwork Fetcher</h1>
+                        <p>Regional Art Museum Digital Collection</p>
+                    </div>
+
+                </div>
+
+                <button
+                    id="themeBtn"
+                    class="theme-btn"
+                    aria-label="Toggle Theme">
+
+                    <i class="fa-solid fa-moon"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- ===========================
+            HERO SECTION
+    ============================ -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <span class="hero-badge">
+                Museum Collection Explorer
+            </span>
+
+            <h2>
+                Discover Historic Artworks from Around the World
+            </h2>
+
+            <p>
+                Search, explore and save timeless masterpieces from one of the
+                world's largest museum collections through a fast and modern interface.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ===========================
+            SEARCH SECTION
+    ============================ -->
+
+    <section class="search-section">
+
+        <div class="container">
+
+            <div class="search-container">
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search artwork, artist or keyword..."
+                        aria-label="Search Artwork">
+
+                </div>
+
+                <button
+                    id="searchBtn"
+                    class="search-btn"
+                    aria-label="Search Artwork">
+
+                    Search
+
+                </button>
+
+                <button
+                    id="randomBtn"
+                    class="random-btn"
+                    aria-label="Random Artwork">
+
+                    Random
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+        <!-- ===========================
+            STATS SECTION
+    ============================ -->
+
+    <section class="stats-section">
+
+        <div class="container">
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <h3>470K+</h3>
+                    <p>Artworks Available</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>19</h3>
+                    <p>Museum Departments</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Open</h3>
+                    <p>Public API Access</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>100%</h3>
+                    <p>Responsive Design</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===========================
+            RECENT SEARCHES
+    ============================ -->
+
+    <section class="recent-section">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <h3>Recent Searches</h3>
+
+                <button id="clearRecentBtn" class="text-btn">
+                    Clear All
+                </button>
+
+            </div>
+
+            <div id="recentSearches" class="recent-searches">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===========================
+            LOADER
+    ============================ -->
+
+    <section class="loader-section">
+
+        <div id="loader" class="loader">
+
+            <div class="spinner"></div>
+
+            <h4>Loading Artwork</h4>
+
+            <p>Please wait while we fetch artwork details...</p>
+
+        </div>
+
+    </section>
+
+    <!-- ===========================
+            MESSAGE
+    ============================ -->
+
+    <section class="message-section">
+
+        <div class="container">
+
+            <div id="message" class="message-box">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===========================
+            FEATURED ARTWORK
+    ============================ -->
+
+    <main class="artwork-section">
+
+        <div class="container">
+
+            <div id="artworkCard" class="artwork-card">
+
+                <div class="artwork-image">
+
+                    <img
+                        id="artworkImage"
+                        src=""
+                        alt="Artwork">
+
+                </div>
+
+                <div class="artwork-content">
+
+                    <div class="card-header">
+
+                        <span class="card-tag">
+                            Featured Artwork
+                        </span>
+
+                        <h2 id="artworkTitle">
+                            Artwork Title
+                        </h2>
+
+                    </div>
+
+                    <div class="details-grid">
+
+                        <div class="detail-box">
+
+                            <span>Artist</span>
+
+                            <p id="artistName">Unknown</p>
+
+                        </div>
+
+                        <div class="detail-box">
+
+                            <span>Date</span>
+
+                            <p id="artworkDate">-</p>
+
+                        </div>
+
+                        <div class="detail-box">
+
+                            <span>Medium</span>
+
+                            <p id="artworkMedium">-</p>
+
+                        </div>
+
+                        <div class="detail-box">
+
+                            <span>Department</span>
+
+                            <p id="artworkDepartment">-</p>
+
+                        </div>
+
+                        <div class="detail-box">
+
+                            <span>Culture</span>
+
+                            <p id="artworkCulture">-</p>
+
+                        </div>
+
+                        <div class="detail-box">
+
+                            <span>Repository</span>
+
+                            <p id="artworkRepository">-</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="action-buttons">
+
+                        <button id="favoriteBtn" class="primary-btn">
+
+                            <i class="fa-regular fa-bookmark"></i>
+
+                            Save
+
+                        </button>
+
+                        <button id="copyBtn" class="secondary-btn">
+
+                            <i class="fa-regular fa-copy"></i>
+
+                            Copy
+
+                        </button>
+
+                        <button id="downloadBtn" class="secondary-btn">
+
+                            <i class="fa-solid fa-download"></i>
+
+                            Download
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+        <!-- ===========================
+            FAVORITES SECTION
+    ============================ -->
+
+    <section class="favorites-section">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <h3>Saved Artworks</h3>
+
+                <button id="clearFavoritesBtn" class="text-btn">
+                    Clear All
+                </button>
+
+            </div>
+
+            <div id="favoritesContainer" class="favorites-grid">
+
+                <!-- Favorite cards will be added here -->
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===========================
+            BACK TO TOP
+    ============================ -->
+
+    <button
+        id="backToTop"
+        class="back-to-top"
+        aria-label="Back to Top">
+
+        <i class="fa-solid fa-arrow-up"></i>
+
+    </button>
+
+    <!-- ===========================
+            FOOTER
+    ============================ -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div class="footer-brand">
+
+                    <h3>Classic Artwork Fetcher</h3>
+
+                    <p>
+                        A modern artwork explorer built using the
+                        Metropolitan Museum of Art Collection API.
+                    </p>
+
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="#">Home</a>
+
+                    <a href="#">Collections</a>
+
+                    <a href="#">Favorites</a>
+
+                    <a href="#">Documentation</a>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 Classic Artwork Fetcher. All Rights Reserved.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- ===========================
+            JAVASCRIPT
+    ============================ -->
+    <!-- Toast Notification -->
+
+<div id="toast" class="toast">
+
+    <i class="fa-solid fa-circle-check"></i>
+
+    <span id="toastMessage">
+        Success
+    </span>
+
+</div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
